@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hello world</title>
-  <meta name="description" content="Hello world :).">
+  <title>Python框架学习 02 rawio.py</title>
+  <meta name="description" content="rawio.py 的主要功能:">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://win0x86.github.io/blog/blog/other/2015/03/25/welcome-to-win0x86-blog.html">
+  <link rel="canonical" href="http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html">
   <link rel="alternate" type="application/rss+xml" title="Win0x86's blog" href="http://win0x86.github.io/blog/feed.xml" />
 </head>
 
@@ -59,22 +59,43 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Hello world</h1>
-    <p class="post-meta">Mar 25, 2015</p>
+    <h1 class="post-title">Python框架学习 02 rawio.py</h1>
+    <p class="post-meta">Mar 31, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>Hello world :).</p>
+    <p>rawio.py 的主要功能:</p>
 
-<p>win0x86 on github.com: <a href="https://github.com/win0x86">https://github.com/win0x86</a></p>
-
+<ul>
+  <li>
+    <p>RawIO 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.</p>
+  </li>
+  <li>
+    <p>Fwf是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51" target="_blank"><code>add_handler</code></a> 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L56" target="_blank"><code>modify_handler</code></a> 可修改 socket 的要处理事件.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L60" target="_blank"><code>remove_handler</code></a> 如果客户端关闭了连接，则通过此方法删除.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32" target="_blank"><code>loop</code></a> 则启动事件轮询.</p>
+  </li>
+  <li>
+    <p>由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 epoll 与 thread 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.</p>
+  </li>
+</ul>
 
   </article>
   <div id="post-nav" class="clearfix">
   
-  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a class="prev" href="/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html">&laquo; Python框架学习 01 前言</a>
   
-  <a class="next" href="/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html">Python框架学习 01 前言 &raquo;</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
   
 </div>
 

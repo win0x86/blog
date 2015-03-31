@@ -6,9 +6,97 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 25 Mar 2015 17:37:17 +0800</pubDate>
-    <lastBuildDate>Wed, 25 Mar 2015 17:37:17 +0800</lastBuildDate>
+    <pubDate>Tue, 31 Mar 2015 18:05:24 +0800</pubDate>
+    <lastBuildDate>Tue, 31 Mar 2015 18:05:24 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Python框架学习 02 rawio.py</title>
+        <description>&lt;p&gt;rawio.py 的主要功能:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;RawIO 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fwf是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;add_handler&lt;/code&gt;&lt;/a&gt; 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L56&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;modify_handler&lt;/code&gt;&lt;/a&gt; 可修改 socket 的要处理事件.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L60&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;remove_handler&lt;/code&gt;&lt;/a&gt; 如果客户端关闭了连接，则通过此方法删除.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;loop&lt;/code&gt;&lt;/a&gt; 则启动事件轮询.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 epoll 与 thread 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 31 Mar 2015 02:20:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
+    
+      <item>
+        <title>Python框架学习 01 前言</title>
+        <description>&lt;h1 id=&quot;section&quot;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;为了更好的了解Web框架的具体运作, 选择去实现一个框架，在选择参考框架时发现 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; 代码简洁而且设计比较好, 所以Python框架学习系列是以 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 所写, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 是参考 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; v1.0.0版本的, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 精简了一下 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;目录&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Python框架学习系列是基于 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目编写, 文章是根据项目的 py 文件去介绍框架从底向是如何执行处理的.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;一些基础知识&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;stream.py 基于事件模型处理socket的读写事件.&lt;/li&gt;
+  &lt;li&gt;server.py Web服务器端监听服务.&lt;/li&gt;
+  &lt;li&gt;web.py Web请求处理类，还有对URL的映射.&lt;/li&gt;
+  &lt;li&gt;template.py Web页面模板的处理.&lt;/li&gt;
+  &lt;li&gt;util.py 一些杂项.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;blogpythonfwf20150331python-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TCP/IP, 通信基础.&lt;/li&gt;
+  &lt;li&gt;HTTP 协议, Web 应用主要使用的协议.&lt;/li&gt;
+  &lt;li&gt;Linux epoll 系统调用, 底层的事件调度.&lt;/li&gt;
+  &lt;li&gt;什么是 Web 框架?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;网络协议可以参考 &lt;a href=&quot;http://book.douban.com/subject/3062468/&quot; target=&quot;_blank&quot;&gt;«TCP/IP 指南»&lt;/a&gt; &lt;a href=&quot;http://book.douban.com/subject/4859464/&quot; target=&quot;_blank&quot;&gt;«UNIX网络编程 卷1：套接字联网API»&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://book.douban.com/subject/10746113/&quot; target=&quot;_blank&quot;&gt;«HTTP权威指南»&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; 对于 &lt;a href=&quot;https://en.wikipedia.org/wiki/Epoll&quot; target=&quot;_blank&quot;&gt;Epoll&lt;/a&gt;系统调用描述.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; 对于 &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_application_framework&quot; target=&quot;_blank&quot;&gt;Web 框架&lt;/a&gt; 的说明, 个人理解框架提供了编程的方式，让我们写的代码可以在其中运行，我们可以专注于业务逻辑.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 31 Mar 2015 02:20:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
     
       <item>
         <title>Hello world</title>
