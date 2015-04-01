@@ -6,9 +6,36 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 Mar 2015 18:08:42 +0800</pubDate>
-    <lastBuildDate>Tue, 31 Mar 2015 18:08:42 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2015 17:16:43 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2015 17:16:43 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Python框架学习 03 stream.py</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py&quot; target=&quot;_blank&quot;&gt;stream.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Stream&lt;/code&gt;&lt;/a&gt; 类提供处理 socket 读写的一些方法.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;主要是 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;read&lt;/code&gt;&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L79&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;write&lt;/code&gt;&lt;/a&gt; 方法.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;read&lt;/code&gt;&lt;/a&gt; 可以根据具体的标记去读取, 比如 HTTP 协议是以 &lt;code&gt;\r\n&lt;/code&gt; 标记结尾的.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 02 Apr 2015 00:20:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
     
       <item>
         <title>Python框架学习 02 rawio.py</title>
@@ -16,10 +43,10 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;RawIO 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;RawIO&lt;/code&gt;&lt;/a&gt; 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Fwf是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;add_handler&lt;/code&gt;&lt;/a&gt; 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.&lt;/p&gt;
@@ -34,7 +61,7 @@
     &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;loop&lt;/code&gt;&lt;/a&gt; 则启动事件轮询.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 epoll 与 thread 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.&lt;/p&gt;
+    &lt;p&gt;由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 &lt;code&gt;epoll&lt;/code&gt; 与 &lt;code&gt;thread&lt;/code&gt; 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -64,7 +91,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;一些基础知识&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;stream.py 基于事件模型处理socket的读写事件.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog//python/fwf/2015/04/02/python-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;server.py Web服务器端监听服务.&lt;/li&gt;
   &lt;li&gt;web.py Web请求处理类，还有对URL的映射.&lt;/li&gt;
   &lt;li&gt;template.py Web页面模板的处理.&lt;/li&gt;

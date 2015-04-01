@@ -68,10 +68,10 @@
 
 <ul>
   <li>
-    <p>RawIO 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.</p>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L18" target="_blank"><code>RawIO</code></a> 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.</p>
   </li>
   <li>
-    <p>Fwf是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.</p>
+    <p><a href="https://github.com/win0x86/Fwf" target="_blank">Fwf</a> 是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.</p>
   </li>
   <li>
     <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51" target="_blank"><code>add_handler</code></a> 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.</p>
@@ -86,7 +86,7 @@
     <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32" target="_blank"><code>loop</code></a> 则启动事件轮询.</p>
   </li>
   <li>
-    <p>由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 epoll 与 thread 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.</p>
+    <p>由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 <code>epoll</code> 与 <code>thread</code> 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.</p>
   </li>
 </ul>
 
@@ -96,6 +96,8 @@
   <a class="prev" href="/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html">&laquo; Python框架学习 01 前言</a>
   
   &nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <a class="next" href="/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html">Python框架学习 03 stream.py &raquo;</a>
   
 </div>
 
