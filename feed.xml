@@ -6,8 +6,8 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Apr 2015 17:16:43 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Apr 2015 17:16:43 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2015 17:21:42 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2015 17:21:42 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -90,8 +90,8 @@
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;一些基础知识&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog//python/fwf/2015/04/02/python-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;server.py Web服务器端监听服务.&lt;/li&gt;
   &lt;li&gt;web.py Web请求处理类，还有对URL的映射.&lt;/li&gt;
   &lt;li&gt;template.py Web页面模板的处理.&lt;/li&gt;
