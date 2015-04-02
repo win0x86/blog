@@ -6,9 +6,116 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Apr 2015 17:21:42 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Apr 2015 17:21:42 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2015 15:33:47 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2015 15:33:47 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Python框架学习 06 template.py</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;template.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Template&lt;/code&gt;&lt;/a&gt; 模版处理，支持几个模的简单语法.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;原始模板:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;{{ title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     {% if addr == &amp;quot;bj&amp;quot; %}
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;     {% else %}
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;其它&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     {% end %}
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     {% for li in lst %}
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt; {{ li }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;     {% end %}
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;生成的&lt;code&gt;HTML&lt;/code&gt;(假设变量 &lt;code&gt;title&lt;/code&gt; = &lt;code&gt;&quot;Hello&quot;&lt;/code&gt;, &lt;code&gt;addr&lt;/code&gt; = &lt;code&gt;&quot;bj&quot;&lt;/code&gt;, &lt;code&gt;lst&lt;/code&gt; = &lt;code&gt;[&quot;Jack&quot;, &quot;Tim&quot;]&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Jack&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Tim&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 02 Apr 2015 22:32:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
+    
+      <item>
+        <title>Python框架学习 05 web.py</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py&quot; target=&quot;_blank&quot;&gt;web.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L23&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;RequstHandler&lt;/code&gt;&lt;/a&gt; &lt;code&gt;HTTP&lt;/code&gt; 请求基类, 所有请求必须继承此类.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L103&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Context&lt;/code&gt;&lt;/a&gt; 处理所有 &lt;code&gt;RequestHandler&lt;/code&gt; 根据 &lt;code&gt;url&lt;/code&gt; 对应到每个 &lt;code&gt;RequestHandler&lt;/code&gt; 上.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L151&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;NotFoundHandler&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L157&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;ErrorHandler&lt;/code&gt;&lt;/a&gt; 几个默认的 &lt;code&gt;RequestHandler&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 02 Apr 2015 22:19:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
+    
+      <item>
+        <title>Python框架学习 04 server.py</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py&quot; target=&quot;_blank&quot;&gt;server.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPServer&lt;/code&gt;&lt;/a&gt; 主要实现了一个服务器端的绑定服务, 把传入的 &lt;code&gt;socket&lt;/code&gt; 交给 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Stream&lt;/code&gt;&lt;/a&gt; 去做处理.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L50&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPConnection&lt;/code&gt;&lt;/a&gt; 主要是对 &lt;code&gt;HTTP&lt;/code&gt; 协议的处理.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L98&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPHeaders&lt;/code&gt;&lt;/a&gt; 封装了 &lt;code&gt;HTTP&lt;/code&gt; 协议头.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L118&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPRequest&lt;/code&gt;&lt;/a&gt; 包装一个 &lt;code&gt;HTTP&lt;/code&gt; 请求.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 02 Apr 2015 21:33:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
     
       <item>
         <title>Python框架学习 03 stream.py</title>
@@ -92,10 +199,10 @@
   &lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;一些基础知识&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;server.py Web服务器端监听服务.&lt;/li&gt;
-  &lt;li&gt;web.py Web请求处理类，还有对URL的映射.&lt;/li&gt;
-  &lt;li&gt;template.py Web页面模板的处理.&lt;/li&gt;
-  &lt;li&gt;util.py 一些杂项.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html&quot;&gt;server.py Web服务器端监听服务&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html&quot;&gt;web.py Web请求处理类，还有对URL的映射&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html&quot;&gt;template.py Web页面模板的处理&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 执行图示和总结.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;blogpythonfwf20150331python-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
