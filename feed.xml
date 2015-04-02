@@ -6,12 +6,12 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2015 15:33:47 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2015 15:33:47 +0800</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2015 16:14:21 +0800</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2015 16:14:21 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>Python框架学习 06 template.py</title>
+        <title>Python Web 框架学习 06 template.py</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;template.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -50,8 +50,8 @@
 &lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 02 Apr 2015 22:32:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html</guid>
         
         
         <category>python</category>
@@ -61,7 +61,7 @@
       </item>
     
       <item>
-        <title>Python框架学习 05 web.py</title>
+        <title>Python Web 框架学习 05 web.py</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py&quot; target=&quot;_blank&quot;&gt;web.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -77,8 +77,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 02 Apr 2015 22:19:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-05-web.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-05-web.html</guid>
         
         
         <category>python</category>
@@ -88,7 +88,7 @@
       </item>
     
       <item>
-        <title>Python框架学习 04 server.py</title>
+        <title>Python Web 框架学习 04 server.py</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py&quot; target=&quot;_blank&quot;&gt;server.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -107,8 +107,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 02 Apr 2015 21:33:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-04-server.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-04-server.html</guid>
         
         
         <category>python</category>
@@ -118,7 +118,7 @@
       </item>
     
       <item>
-        <title>Python框架学习 03 stream.py</title>
+        <title>Python Web 框架学习 03 stream.py</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py&quot; target=&quot;_blank&quot;&gt;stream.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -134,8 +134,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 02 Apr 2015 00:20:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-03-stream.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-03-stream.html</guid>
         
         
         <category>python</category>
@@ -145,7 +145,7 @@
       </item>
     
       <item>
-        <title>Python框架学习 02 rawio.py</title>
+        <title>Python Web 框架学习 02 rawio.py</title>
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py&quot; target=&quot;_blank&quot;&gt;rawio.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -173,8 +173,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 31 Mar 2015 02:20:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-web-framework-fwf-02-rawio.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-web-framework-fwf-02-rawio.html</guid>
         
         
         <category>python</category>
@@ -184,7 +184,7 @@
       </item>
     
       <item>
-        <title>Python框架学习 01 前言</title>
+        <title>Python Web 框架学习 01 前言</title>
         <description>&lt;h1 id=&quot;section&quot;&gt;前言&lt;/h1&gt;
 
 &lt;p&gt;为了更好的了解Web框架的具体运作, 选择去实现一个框架，在选择参考框架时发现 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; 代码简洁而且设计比较好, 所以Python框架学习系列是以 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 所写, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 是参考 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; v1.0.0版本的, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 精简了一下 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt;.&lt;/p&gt;
@@ -192,20 +192,20 @@
 &lt;h1 id=&quot;section-1&quot;&gt;目录&lt;/h1&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Python框架学习系列是基于 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目编写, 文章是根据项目的 py 文件去介绍框架从底向是如何执行处理的.&lt;/p&gt;
+  &lt;p&gt;Python Web 框架学习系列是基于 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目编写, 文章是根据项目的 py 文件去介绍框架从底向是如何执行处理的.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#intro&quot;&gt;一些基础知识&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html&quot;&gt;server.py Web服务器端监听服务&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html&quot;&gt;web.py Web请求处理类，还有对URL的映射&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html&quot;&gt;template.py Web页面模板的处理&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/03/31/python-web-framework-fwf-02-rawio.html&quot;&gt;rawio.py 一个事件驱动的底层IO(Linux/epoll)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-03-stream.html&quot;&gt;stream.py 基于事件模型处理socket的读写事件&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-04-server.html&quot;&gt;server.py Web服务器端监听服务&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-05-web.html&quot;&gt;web.py Web请求处理类，还有对URL的映射&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html&quot;&gt;template.py Web页面模板的处理&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 执行图示和总结.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;blogpythonfwf20150331python-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;blogpythonfwf20150331python-web-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;TCP/IP, 通信基础.&lt;/li&gt;
@@ -220,10 +220,43 @@
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; 对于 &lt;a href=&quot;https://en.wikipedia.org/wiki/Epoll&quot; target=&quot;_blank&quot;&gt;Epoll&lt;/a&gt;系统调用描述.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; 对于 &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_application_framework&quot; target=&quot;_blank&quot;&gt;Web 框架&lt;/a&gt; 的说明, 个人理解框架提供了编程的方式，让我们写的代码可以在其中运行，我们可以专注于业务逻辑.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2 id=&quot;fwfhttpsgithubcomwin0x86fwftargetblank-&quot;&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目的一些说明&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 只是一个学习项目，还没有足够的完善, 做为一学习项目存在.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 目录结构.&lt;/p&gt;
+
+&lt;p&gt;├── &lt;a href=&quot;https://github.com/win0x86/Fwf/tree/develop/fwf&quot; target=&quot;_blank&quot;&gt;fwf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/__init__.py&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;init&lt;/strong&gt;.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py&quot; target=&quot;_blank&quot;&gt;rawio.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py&quot; target=&quot;_blank&quot;&gt;server.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py&quot; target=&quot;_blank&quot;&gt;stream.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;template.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   ├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/util.py&quot; target=&quot;_blank&quot;&gt;util.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;│   └── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py&quot; target=&quot;_blank&quot;&gt;web.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/helloworld.py&quot; target=&quot;_blank&quot;&gt;helloworld.py&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/index.html&quot; target=&quot;_blank&quot;&gt;index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/LICENSE&quot; target=&quot;_blank&quot;&gt;LICENSE&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;├── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/README.md&quot; target=&quot;_blank&quot;&gt;README.md&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;└── &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/TODO&quot; target=&quot;_blank&quot;&gt;TODO&lt;/a&gt;&lt;/p&gt;
+
 </description>
         <pubDate>Tue, 31 Mar 2015 02:20:40 +0800</pubDate>
-        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html</link>
-        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-framework-fwf-01-intro.html</guid>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html</guid>
         
         
         <category>python</category>

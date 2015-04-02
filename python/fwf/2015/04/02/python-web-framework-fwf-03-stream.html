@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Python框架学习 05 web.py</title>
-  <meta name="description" content="web.py 的主要功能:">
+  <title>Python Web 框架学习 03 stream.py</title>
+  <meta name="description" content="stream.py 的主要功能:">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-05-web.html">
+  <link rel="canonical" href="http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-03-stream.html">
   <link rel="alternate" type="application/rss+xml" title="Win0x86's blog" href="http://win0x86.github.io/blog/feed.xml" />
 </head>
 
@@ -59,33 +59,33 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Python框架学习 05 web.py</h1>
+    <h1 class="post-title">Python Web 框架学习 03 stream.py</h1>
     <p class="post-meta">Apr 2, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/web.py" target="_blank">web.py</a> 的主要功能:</p>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py" target="_blank">stream.py</a> 的主要功能:</p>
 
 <ul>
   <li>
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L23" target="_blank"><code>RequstHandler</code></a> <code>HTTP</code> 请求基类, 所有请求必须继承此类.</p>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17" target="_blank"><code>Stream</code></a> 类提供处理 socket 读写的一些方法.</p>
   </li>
   <li>
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L103" target="_blank"><code>Context</code></a> 处理所有 <code>RequestHandler</code> 根据 <code>url</code> 对应到每个 <code>RequestHandler</code> 上.</p>
+    <p>主要是 <a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112" target="_blank"><code>read</code></a> 和 <a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L79" target="_blank"><code>write</code></a> 方法.</p>
   </li>
   <li>
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L151" target="_blank"><code>NotFoundHandler</code></a>, <a href="https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L157" target="_blank"><code>ErrorHandler</code></a> 几个默认的 <code>RequestHandler</code>.</p>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112" target="_blank"><code>read</code></a> 可以根据具体的标记去读取, 比如 HTTP 协议是以 <code>\r\n</code> 标记结尾的.</p>
   </li>
 </ul>
 
   </article>
   <div id="post-nav" class="clearfix">
   
-  <a class="prev" href="/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html">&laquo; Python框架学习 04 server.py</a>
+  <a class="prev" href="/blog/python/fwf/2015/03/31/python-web-framework-fwf-02-rawio.html">&laquo; Python Web 框架学习 02 rawio.py</a>
   
   &nbsp;&nbsp;&nbsp;&nbsp;
   
-  <a class="next" href="/blog/python/fwf/2015/04/02/python-framework-fwf-06-template.html">Python框架学习 06 template.py &raquo;</a>
+  <a class="next" href="/blog/python/fwf/2015/04/02/python-web-framework-fwf-04-server.html">Python Web 框架学习 04 server.py &raquo;</a>
   
 </div>
 

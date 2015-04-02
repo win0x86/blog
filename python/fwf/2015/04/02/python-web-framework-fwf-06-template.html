@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Python框架学习 03 stream.py</title>
-  <meta name="description" content="stream.py 的主要功能:">
+  <title>Python Web 框架学习 06 template.py</title>
+  <meta name="description" content="template.py 的主要功能:">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://win0x86.github.io/blog/python/fwf/2015/04/02/python-framework-fwf-03-stream.html">
+  <link rel="canonical" href="http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html">
   <link rel="alternate" type="application/rss+xml" title="Win0x86's blog" href="http://win0x86.github.io/blog/feed.xml" />
 </head>
 
@@ -59,33 +59,54 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Python框架学习 03 stream.py</h1>
+    <h1 class="post-title">Python Web 框架学习 06 template.py</h1>
     <p class="post-meta">Apr 2, 2015</p>
   </header>
 
   <article class="post-content">
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py" target="_blank">stream.py</a> 的主要功能:</p>
+    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/template.py" target="_blank">template.py</a> 的主要功能:</p>
 
 <ul>
-  <li>
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17" target="_blank"><code>Stream</code></a> 类提供处理 socket 读写的一些方法.</p>
-  </li>
-  <li>
-    <p>主要是 <a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112" target="_blank"><code>read</code></a> 和 <a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L79" target="_blank"><code>write</code></a> 方法.</p>
-  </li>
-  <li>
-    <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112" target="_blank"><code>read</code></a> 可以根据具体的标记去读取, 比如 HTTP 协议是以 <code>\r\n</code> 标记结尾的.</p>
-  </li>
+  <li><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/template.py" target="_blank"><code>Template</code></a> 模版处理，支持几个模的简单语法.</li>
 </ul>
+
+<p>原始模板:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;html&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;body&gt;</span>
+<span class="lineno"> 3</span>     <span class="nt">&lt;h1&gt;</span>{{ title }}<span class="nt">&lt;/h1&gt;</span>
+<span class="lineno"> 4</span>     {% if addr == &quot;bj&quot; %}
+<span class="lineno"> 5</span>     <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
+<span class="lineno"> 6</span>     {% else %}
+<span class="lineno"> 7</span>     <span class="nt">&lt;span&gt;</span>其它<span class="nt">&lt;/span&gt;</span>
+<span class="lineno"> 8</span>     {% end %}
+<span class="lineno"> 9</span>     <span class="nt">&lt;ol&gt;</span>
+<span class="lineno">10</span>     {% for li in lst %}
+<span class="lineno">11</span>     <span class="nt">&lt;li&gt;</span> {{ li }}<span class="nt">&lt;/li&gt;</span>
+<span class="lineno">12</span>     {% end %}
+<span class="lineno">13</span>     <span class="nt">&lt;/ol&gt;</span>
+<span class="lineno">14</span>   <span class="nt">&lt;/body&gt;</span>
+<span class="lineno">15</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
+
+<p>生成的<code>HTML</code>(假设变量 <code>title</code> = <code>"Hello"</code>, <code>addr</code> = <code>"bj"</code>, <code>lst</code> = <code>["Jack", "Tim"]</code>).</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;html&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;body&gt;</span>
+<span class="lineno"> 3</span>     <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+<span class="lineno"> 4</span>     <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
+<span class="lineno"> 5</span>     <span class="nt">&lt;ol&gt;</span>
+<span class="lineno"> 6</span>       <span class="nt">&lt;li&gt;</span>Jack<span class="nt">&lt;/li&gt;</span>
+<span class="lineno"> 7</span>       <span class="nt">&lt;li&gt;</span>Tim<span class="nt">&lt;/li&gt;</span>
+<span class="lineno"> 8</span>     <span class="nt">&lt;/ol&gt;</span>
+<span class="lineno"> 9</span>   <span class="nt">&lt;/body&gt;</span>
+<span class="lineno">10</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
 
   </article>
   <div id="post-nav" class="clearfix">
   
-  <a class="prev" href="/blog/python/fwf/2015/03/31/python-framework-fwf-02-rawio.html">&laquo; Python框架学习 02 rawio.py</a>
+  <a class="prev" href="/blog/python/fwf/2015/04/02/python-web-framework-fwf-05-web.html">&laquo; Python Web 框架学习 05 web.py</a>
   
   &nbsp;&nbsp;&nbsp;&nbsp;
-  
-  <a class="next" href="/blog/python/fwf/2015/04/02/python-framework-fwf-04-server.html">Python框架学习 04 server.py &raquo;</a>
   
 </div>
 
