@@ -6,9 +6,46 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2015 16:14:21 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2015 16:14:21 +0800</lastBuildDate>
+    <pubDate>Wed, 08 Apr 2015 15:53:23 +0800</pubDate>
+    <lastBuildDate>Wed, 08 Apr 2015 15:53:23 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Python Web 框架学习 07 总结</title>
+        <description>&lt;h1 id=&quot;python-web-&quot;&gt;Python Web 框架学习总结.&lt;/h1&gt;
+&lt;p&gt;通过对 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 代码的讲解去理解 Web 框架的如何去运做.&lt;/p&gt;
+
+&lt;p&gt;下图为 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 执行所用到的类：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;-------------+----------------------------------------------------------+
+             |  fwf.web.Context                                         |
+             |  |-------------------------------------------------------|
+             |  | fwf.server.HTTPServer                                 |
+             |  |  |----------------------------------------------------|
+             |  |  | fwf.stream.Stream                                  |
+             |  |  |  |-------------------------------------------------|
+GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
+             |  |  |  | |-----------------------------------------------|
+             |  |  |  | |                                               |
+&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;= HTTP/1.1..|  |  |  | | GET/POST/HEAD/PUT/DELETE/OPTINOS Method.      |
+             |  |  |  | |                                               |
+             |  |  |  | |-----------------------------------------------|
+-------------+----------------------------------------------------------+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;HTTP 客户端请求 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 请求处理流程.
+下图用洋葱形象的描述了 WSGI 的请求处理(来自 &lt;a href=&quot;http://www.pylonsproject.org&quot; target=&quot;_blank&quot;&gt;Pylons&lt;/a&gt;).
+&lt;img src=&quot;http://win0x86.github.io/blog/images/pylons_as_onion.png&quot; alt=&quot;pylons_as_onion&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 Apr 2015 22:10:00 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/python/fwf/2015/04/08/python-web-framework-fwf-07-summary.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/python/fwf/2015/04/08/python-web-framework-fwf-07-summary.html</guid>
+        
+        
+        <category>python</category>
+        
+        <category>fwf</category>
+        
+      </item>
     
       <item>
         <title>Python Web 框架学习 06 template.py</title>
@@ -202,7 +239,7 @@
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-04-server.html&quot;&gt;server.py Web服务器端监听服务&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-05-web.html&quot;&gt;web.py Web请求处理类，还有对URL的映射&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html&quot;&gt;template.py Web页面模板的处理&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 执行图示和总结.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/08/python-web-framework-fwf-07-summary.html&quot;&gt;Fwf 执行图示和总结&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;blogpythonfwf20150331python-web-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
