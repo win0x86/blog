@@ -64,12 +64,12 @@
   </header>
 
   <article class="post-content">
-    <h1 id="python-web-">Python Web 框架学习总结.</h1>
+    <h1 id="python-web-框架学习总结">Python Web 框架学习总结.</h1>
 <p>通过对 <a href="https://github.com/win0x86/fwf" target="_blank">Fwf</a> 代码的讲解去理解 Web 框架的如何去运做.</p>
 
 <p>下图为 <a href="https://github.com/win0x86/fwf" target="_blank">Fwf</a> 执行所用到的类：</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html">-------------+----------------------------------------------------------+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">-------------+----------------------------------------------------------+
              |  fwf.web.Context                                         |
              |  |-------------------------------------------------------|
              |  | fwf.server.HTTPServer                                 |
@@ -82,7 +82,7 @@ GET /... =&gt;  |  |  |  | fwf.web.RequestHandler                          |
 <span class="err">&lt;</span>= HTTP/1.1..|  |  |  | | GET/POST/HEAD/PUT/DELETE/OPTINOS Method.      |
              |  |  |  | |                                               |
              |  |  |  | |-----------------------------------------------|
--------------+----------------------------------------------------------+</code></pre></div>
+-------------+----------------------------------------------------------+</code></pre></figure>
 
 <p>HTTP 客户端请求 <a href="https://github.com/win0x86/fwf" target="_blank">Fwf</a> 请求处理流程.
 下图用洋葱形象的描述了 WSGI 的请求处理(来自 <a href="http://www.pylonsproject.org" target="_blank">Pylons</a>).
@@ -95,29 +95,10 @@ GET /... =&gt;  |  |  |  | fwf.web.RequestHandler                          |
   
   &nbsp;&nbsp;&nbsp;&nbsp;
   
+  <a class="next" href="/blog/c/2016/12/24/c-note-01.html">C 学习笔记 &raquo;</a>
+  
 </div>
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = 'win0x86';
-
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-</div>
-
-        <div id="recent_comments">
-  <h3>最近评论</h3>
-  <div class="comment_list">
-    <script type="text/javascript" src="http://win0x86.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
-  </div>
 </div>
 
       </div>

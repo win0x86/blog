@@ -67,39 +67,64 @@
     <p><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/template.py" target="_blank">template.py</a> 的主要功能:</p>
 
 <ul>
-  <li><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/template.py" target="_blank"><code>Template</code></a> 模版处理，支持几个模的简单语法.</li>
+  <li><a href="https://github.com/win0x86/Fwf/blob/develop/fwf/template.py" target="_blank"><code class="highlighter-rouge">Template</code></a> 模版处理，支持几个模的简单语法.</li>
 </ul>
 
 <p>原始模板:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;html&gt;</span>
-<span class="lineno"> 2</span>   <span class="nt">&lt;body&gt;</span>
-<span class="lineno"> 3</span>     <span class="nt">&lt;h1&gt;</span>{{ title }}<span class="nt">&lt;/h1&gt;</span>
-<span class="lineno"> 4</span>     {% if addr == &quot;bj&quot; %}
-<span class="lineno"> 5</span>     <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
-<span class="lineno"> 6</span>     {% else %}
-<span class="lineno"> 7</span>     <span class="nt">&lt;span&gt;</span>其它<span class="nt">&lt;/span&gt;</span>
-<span class="lineno"> 8</span>     {% end %}
-<span class="lineno"> 9</span>     <span class="nt">&lt;ol&gt;</span>
-<span class="lineno">10</span>     {% for li in lst %}
-<span class="lineno">11</span>     <span class="nt">&lt;li&gt;</span> {{ li }}<span class="nt">&lt;/li&gt;</span>
-<span class="lineno">12</span>     {% end %}
-<span class="lineno">13</span>     <span class="nt">&lt;/ol&gt;</span>
-<span class="lineno">14</span>   <span class="nt">&lt;/body&gt;</span>
-<span class="lineno">15</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>{{ title }}<span class="nt">&lt;/h1&gt;</span>
+    {% if addr == "bj" %}
+    <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
+    {% else %}
+    <span class="nt">&lt;span&gt;</span>其它<span class="nt">&lt;/span&gt;</span>
+    {% end %}
+    <span class="nt">&lt;ol&gt;</span>
+    {% for li in lst %}
+    <span class="nt">&lt;li&gt;</span> {{ li }}<span class="nt">&lt;/li&gt;</span>
+    {% end %}
+    <span class="nt">&lt;/ol&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>生成的<code>HTML</code>(假设变量 <code>title</code> = <code>"Hello"</code>, <code>addr</code> = <code>"bj"</code>, <code>lst</code> = <code>["Jack", "Tim"]</code>).</p>
+<p>生成的<code class="highlighter-rouge">HTML</code>(假设变量 <code class="highlighter-rouge">title</code> = <code class="highlighter-rouge">"Hello"</code>, <code class="highlighter-rouge">addr</code> = <code class="highlighter-rouge">"bj"</code>, <code class="highlighter-rouge">lst</code> = <code class="highlighter-rouge">["Jack", "Tim"]</code>).</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="nt">&lt;html&gt;</span>
-<span class="lineno"> 2</span>   <span class="nt">&lt;body&gt;</span>
-<span class="lineno"> 3</span>     <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
-<span class="lineno"> 4</span>     <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
-<span class="lineno"> 5</span>     <span class="nt">&lt;ol&gt;</span>
-<span class="lineno"> 6</span>       <span class="nt">&lt;li&gt;</span>Jack<span class="nt">&lt;/li&gt;</span>
-<span class="lineno"> 7</span>       <span class="nt">&lt;li&gt;</span>Tim<span class="nt">&lt;/li&gt;</span>
-<span class="lineno"> 8</span>     <span class="nt">&lt;/ol&gt;</span>
-<span class="lineno"> 9</span>   <span class="nt">&lt;/body&gt;</span>
-<span class="lineno">10</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;span&gt;</span>帝都<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;ol&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Jack<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Tim<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ol&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
   </article>
   <div id="post-nav" class="clearfix">
@@ -112,27 +137,6 @@
   
 </div>
 
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = 'win0x86';
-
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-</div>
-
-        <div id="recent_comments">
-  <h3>最近评论</h3>
-  <div class="comment_list">
-    <script type="text/javascript" src="http://win0x86.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
-  </div>
 </div>
 
       </div>

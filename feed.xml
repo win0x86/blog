@@ -6,18 +6,319 @@
 </description>
     <link>http://win0x86.github.io/blog/</link>
     <atom:link href="http://win0x86.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Apr 2015 15:53:23 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Apr 2015 15:53:23 +0800</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Sun, 25 Dec 2016 17:36:02 +0800</pubDate>
+    <lastBuildDate>Sun, 25 Dec 2016 17:36:02 +0800</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>C 学习笔记</title>
+        <description>&lt;h1 id=&quot;为什么重拾c&quot;&gt;为什么重拾C&lt;/h1&gt;
+&lt;p&gt;一直在使用Python开发后端的应用，在深入学习的时候发现涉及到C语言的基础的东西很多，
+在大学时期学习过C，很少用它开发项目。在阅读Python源码时发现还是需要一定C的知识
+(这里读的是&lt;a href=&quot;https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz&quot; target=&quot;_blank&quot;&gt;CPython&lt;/a&gt;)，要深入的学习还是先得学习C。&lt;/p&gt;
+
+&lt;h1 id=&quot;写在前面&quot;&gt;写在前面&lt;/h1&gt;
+&lt;p&gt;C 学习笔记是通过阅读《&lt;a href=&quot;https://book.douban.com/subject/2226913/&quot; target=&quot;_blank&quot;&gt;C语言核心技术&lt;/a&gt;》这本书的一些记录，阅读这本书最好有一点C的基础，
+这本书讲到[&lt;a href=&quot;http://open-std.org/JTC1/SC22/WG14/&quot; target=&quot;_blank&quot;&gt;C99&lt;/a&gt;]标准时会在上面标记[&lt;a href=&quot;http://open-std.org/JTC1/SC22/WG14/&quot; target=&quot;_blank&quot;&gt;C99&lt;/a&gt;]。&lt;/p&gt;
+
+&lt;h1 id=&quot;c-语言基础&quot;&gt;C 语言基础&lt;/h1&gt;
+
+&lt;h4 id=&quot;数据类型分类&quot;&gt;数据类型分类&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;基本数据类型
+    &lt;ul&gt;
+      &lt;li&gt;标准整型数据类型，以及扩充的整型数据类型&lt;/li&gt;
+      &lt;li&gt;实数浮点类型(单精度，双精度)，以及复数浮点类型(C99)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;枚举数据类型&lt;/li&gt;
+  &lt;li&gt;void&lt;/li&gt;
+  &lt;li&gt;衍生的数据类型
+    &lt;ul&gt;
+      &lt;li&gt;指针数据类型&lt;/li&gt;
+      &lt;li&gt;数组数据类型&lt;/li&gt;
+      &lt;li&gt;结构数据类型&lt;/li&gt;
+      &lt;li&gt;联合数据类型&lt;/li&gt;
+      &lt;li&gt;函数数据类型&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;基本类型和枚举类型统称算术类型(arithmetic type)。算术类型和指针类型统称为数据量类型(scalar type)。数组类型和结构类型统称为聚集类型(aggregate type)。联合(union)类型不被认为是聚集类型，因为一次只有一个成员可以具有值。函数类型描述一个函数的接口；它指定函数返回值的数据类型，也能指定所有参数的数据类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;基本数据类型&quot;&gt;基本数据类型&lt;/h3&gt;
+&lt;h4 id=&quot;有符号标准整数类型&quot;&gt;有符号标准整数类型&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;同义类型&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;signed char&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;int&lt;/td&gt;
+      &lt;td&gt;signed, signed int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;short&lt;/td&gt;
+      &lt;td&gt;sort int, signed short, signed short int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;long&lt;/td&gt;
+      &lt;td&gt;long int, signed long, signed long int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;long long&lt;/td&gt;
+      &lt;td&gt;long long int, signed long long, signed long long int&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;无符号标准整数类型&quot;&gt;无符号标准整数类型&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;同义类型&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;_Bool&lt;/td&gt;
+      &lt;td&gt;bool&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned char&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned int&lt;/td&gt;
+      &lt;td&gt;unsigned&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned short&lt;/td&gt;
+      &lt;td&gt;unsigned short int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned long&lt;/td&gt;
+      &lt;td&gt;unsigned long int&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsinged long long&lt;/td&gt;
+      &lt;td&gt;unsigned long long int&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;标准整数类型常见的存储空间大小和值范围&quot;&gt;标准整数类型常见的存储空间大小和值范围&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;存储空间大小&lt;/th&gt;
+      &lt;th&gt;最小值&lt;/th&gt;
+      &lt;th&gt;最大值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;char&lt;/td&gt;
+      &lt;td&gt;一个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned char&lt;/td&gt;
+      &lt;td&gt;一个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;signed char&lt;/td&gt;
+      &lt;td&gt;一个字节&lt;/td&gt;
+      &lt;td&gt;-128&lt;/td&gt;
+      &lt;td&gt;127&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;int&lt;/td&gt;
+      &lt;td&gt;两个或四个字节&lt;/td&gt;
+      &lt;td&gt;-32,768或-2,147,483,648&lt;/td&gt;
+      &lt;td&gt;32,767或2,147,483,647&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned int&lt;/td&gt;
+      &lt;td&gt;两个或四个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;65,535或4,294,967,295&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;short&lt;/td&gt;
+      &lt;td&gt;两个字节&lt;/td&gt;
+      &lt;td&gt;-32,768&lt;/td&gt;
+      &lt;td&gt;65,535&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned short&lt;/td&gt;
+      &lt;td&gt;两个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;32,767&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;long&lt;/td&gt;
+      &lt;td&gt;四个字节&lt;/td&gt;
+      &lt;td&gt;-2,147,483,648&lt;/td&gt;
+      &lt;td&gt;2,147,483,647&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned long&lt;/td&gt;
+      &lt;td&gt;四个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;4,294,967,295&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;long long (C99支持)&lt;/td&gt;
+      &lt;td&gt;八个字节&lt;/td&gt;
+      &lt;td&gt;-9,223,372,036,854,775,808&lt;/td&gt;
+      &lt;td&gt;9,224,372,036,854,775,807&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;unsigned long long&lt;/td&gt;
+      &lt;td&gt;八个字节&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;18,446,744,073,709,5511,615&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;浮点类型&quot;&gt;浮点类型&lt;/h3&gt;
+&lt;h4 id=&quot;实数浮点数据类型&quot;&gt;实数浮点数据类型&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;存储空间大小&lt;/th&gt;
+      &lt;th&gt;值范围&lt;/th&gt;
+      &lt;th&gt;最小正值值&lt;/th&gt;
+      &lt;th&gt;精确度&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;float&lt;/td&gt;
+      &lt;td&gt;4个字节&lt;/td&gt;
+      &lt;td&gt;3.4E+38&lt;/td&gt;
+      &lt;td&gt;1.2E-38&lt;/td&gt;
+      &lt;td&gt;6位数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;double&lt;/td&gt;
+      &lt;td&gt;8个字节&lt;/td&gt;
+      &lt;td&gt;1.7E+308&lt;/td&gt;
+      &lt;td&gt;2.3E-308&lt;/td&gt;
+      &lt;td&gt;15位数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;long double&lt;/td&gt;
+      &lt;td&gt;10个字节&lt;/td&gt;
+      &lt;td&gt;1.1E+4932&lt;/td&gt;
+      &lt;td&gt;3.4E-4932&lt;/td&gt;
+      &lt;td&gt;19位数&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;float.h 头文件中定义了宏，你可以使用这些取值。FLT_MIN、FLT_MAX，FLT_DIG&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;枚举类型&quot;&gt;枚举类型&lt;/h3&gt;
+&lt;p&gt;枚举是一种整数类型，是程序中自行定义的整数类型。&lt;/p&gt;
+
+&lt;h3 id=&quot;void类型&quot;&gt;void类型&lt;/h3&gt;
+
+&lt;h4 id=&quot;用于函数声明的-void&quot;&gt;用于函数声明的 void&lt;/h4&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perror&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;数据类型为-void-的表达式&quot;&gt;数据类型为 void 的表达式&lt;/h4&gt;
+&lt;p&gt;显式类型转换(cast)运算(void)expression 显式地将表达式的值丢弃，如:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;I don't need this function's return value!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;指向void的指针&quot;&gt;指向void的指针&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;void *是一种指针数据类型，代表一个对象的地址，但没有该对象的数据类型信息。可以使用这种“无数据类型“的指针来声明函数，让函数可以使用各式各样的指针数据类型的变量，或者一个”多用途“的指针。标准的内存管理函数正是这样和简单的范例：&lt;/p&gt;
+  &lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;malloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;realloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;free&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;类型转换&quot;&gt;类型转换&lt;/h3&gt;
+
+&lt;h4 id=&quot;算术类型转换&quot;&gt;算术类型转换&lt;/h4&gt;
+
+&lt;p&gt;类型转换等级，标准的整数类型等级次序如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_Bool &amp;lt; char &amp;lt; short &amp;lt; int &amp;lt; long &amp;lt; long long
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;浮点数据类型的等次序如下:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;float &amp;lt; double &amp;lt; long double
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在任何表达式中，总是可以把类型等级比 int 低的当作 int 类型或 unsigned int 类型的操作数。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;通常的算术转换是一种隐式的类型转换操作。对大多数的运算符来说，通常的算术转换会被自动地应用到不同算术类型的操作数上。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;其它隐式转换&quot;&gt;其它隐式转换&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;在赋值和初始化的时候，右边操作数的值总是被转换成左边操作数的类型。&lt;/li&gt;
+    &lt;li&gt;在函数调用的时候，自变量会被转换成对应的参数类型。如果参数没有被声明，那么就会采用自变量类型提升的默认做法；整数自变量进行整数提升，float 类型被转换为double 类型。&lt;/li&gt;
+    &lt;li&gt;在 return 语句中，return 表达式的值会被转换为函数的 return 类型。&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sat, 24 Dec 2016 19:39:40 +0800</pubDate>
+        <link>http://win0x86.github.io/blog/c/2016/12/24/c-note-01.html</link>
+        <guid isPermaLink="true">http://win0x86.github.io/blog/c/2016/12/24/c-note-01.html</guid>
+        
+        
+        <category>C</category>
+        
+      </item>
     
       <item>
         <title>Python Web 框架学习 07 总结</title>
-        <description>&lt;h1 id=&quot;python-web-&quot;&gt;Python Web 框架学习总结.&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;python-web-框架学习总结&quot;&gt;Python Web 框架学习总结.&lt;/h1&gt;
 &lt;p&gt;通过对 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 代码的讲解去理解 Web 框架的如何去运做.&lt;/p&gt;
 
 &lt;p&gt;下图为 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 执行所用到的类：&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;-------------+----------------------------------------------------------+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;-------------+----------------------------------------------------------+
              |  fwf.web.Context                                         |
              |  |-------------------------------------------------------|
              |  | fwf.server.HTTPServer                                 |
@@ -30,7 +331,7 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
 &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;= HTTP/1.1..|  |  |  | | GET/POST/HEAD/PUT/DELETE/OPTINOS Method.      |
              |  |  |  | |                                               |
              |  |  |  | |-----------------------------------------------|
--------------+----------------------------------------------------------+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+-------------+----------------------------------------------------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;HTTP 客户端请求 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 请求处理流程.
 下图用洋葱形象的描述了 WSGI 的请求处理(来自 &lt;a href=&quot;http://www.pylonsproject.org&quot; target=&quot;_blank&quot;&gt;Pylons&lt;/a&gt;).
@@ -52,39 +353,64 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
         <description>&lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;template.py&lt;/a&gt; 的主要功能:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Template&lt;/code&gt;&lt;/a&gt; 模版处理，支持几个模的简单语法.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/template.py&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Template&lt;/code&gt;&lt;/a&gt; 模版处理，支持几个模的简单语法.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;原始模板:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;{{ title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     {% if addr == &amp;quot;bj&amp;quot; %}
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;     {% else %}
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;其它&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     {% end %}
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     {% for li in lst %}
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt; {{ li }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;     {% end %}
-&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;{{ title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    {% if addr == &quot;bj&quot; %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    {% else %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;其它&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    {% end %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+    {% for li in lst %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt; {{ li }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    {% end %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;生成的&lt;code&gt;HTML&lt;/code&gt;(假设变量 &lt;code&gt;title&lt;/code&gt; = &lt;code&gt;&quot;Hello&quot;&lt;/code&gt;, &lt;code&gt;addr&lt;/code&gt; = &lt;code&gt;&quot;bj&quot;&lt;/code&gt;, &lt;code&gt;lst&lt;/code&gt; = &lt;code&gt;[&quot;Jack&quot;, &quot;Tim&quot;]&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;生成的&lt;code class=&quot;highlighter-rouge&quot;&gt;HTML&lt;/code&gt;(假设变量 &lt;code class=&quot;highlighter-rouge&quot;&gt;title&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Hello&quot;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;addr&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;bj&quot;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;lst&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;[&quot;Jack&quot;, &quot;Tim&quot;]&lt;/code&gt;).&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Jack&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;       &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Tim&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hello&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;帝都&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Jack&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Tim&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Thu, 02 Apr 2015 22:32:40 +0800</pubDate>
         <link>http://win0x86.github.io/blog/python/fwf/2015/04/02/python-web-framework-fwf-06-template.html</link>
@@ -103,13 +429,13 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L23&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;RequstHandler&lt;/code&gt;&lt;/a&gt; &lt;code&gt;HTTP&lt;/code&gt; 请求基类, 所有请求必须继承此类.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L23&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequstHandler&lt;/code&gt;&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP&lt;/code&gt; 请求基类, 所有请求必须继承此类.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L103&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Context&lt;/code&gt;&lt;/a&gt; 处理所有 &lt;code&gt;RequestHandler&lt;/code&gt; 根据 &lt;code&gt;url&lt;/code&gt; 对应到每个 &lt;code&gt;RequestHandler&lt;/code&gt; 上.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L103&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Context&lt;/code&gt;&lt;/a&gt; 处理所有 &lt;code class=&quot;highlighter-rouge&quot;&gt;RequestHandler&lt;/code&gt; 根据 &lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt; 对应到每个 &lt;code class=&quot;highlighter-rouge&quot;&gt;RequestHandler&lt;/code&gt; 上.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L151&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;NotFoundHandler&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L157&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;ErrorHandler&lt;/code&gt;&lt;/a&gt; 几个默认的 &lt;code&gt;RequestHandler&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L151&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NotFoundHandler&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/web.py#L157&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ErrorHandler&lt;/code&gt;&lt;/a&gt; 几个默认的 &lt;code class=&quot;highlighter-rouge&quot;&gt;RequestHandler&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -130,16 +456,16 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPServer&lt;/code&gt;&lt;/a&gt; 主要实现了一个服务器端的绑定服务, 把传入的 &lt;code&gt;socket&lt;/code&gt; 交给 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Stream&lt;/code&gt;&lt;/a&gt; 去做处理.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTPServer&lt;/code&gt;&lt;/a&gt; 主要实现了一个服务器端的绑定服务, 把传入的 &lt;code class=&quot;highlighter-rouge&quot;&gt;socket&lt;/code&gt; 交给 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stream&lt;/code&gt;&lt;/a&gt; 去做处理.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L50&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPConnection&lt;/code&gt;&lt;/a&gt; 主要是对 &lt;code&gt;HTTP&lt;/code&gt; 协议的处理.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L50&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTPConnection&lt;/code&gt;&lt;/a&gt; 主要是对 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP&lt;/code&gt; 协议的处理.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L98&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPHeaders&lt;/code&gt;&lt;/a&gt; 封装了 &lt;code&gt;HTTP&lt;/code&gt; 协议头.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L98&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTPHeaders&lt;/code&gt;&lt;/a&gt; 封装了 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP&lt;/code&gt; 协议头.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L118&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;HTTPRequest&lt;/code&gt;&lt;/a&gt; 包装一个 &lt;code&gt;HTTP&lt;/code&gt; 请求.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/server.py#L118&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTPRequest&lt;/code&gt;&lt;/a&gt; 包装一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP&lt;/code&gt; 请求.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -160,13 +486,13 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;Stream&lt;/code&gt;&lt;/a&gt; 类提供处理 socket 读写的一些方法.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L17&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stream&lt;/code&gt;&lt;/a&gt; 类提供处理 socket 读写的一些方法.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;主要是 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;read&lt;/code&gt;&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L79&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;write&lt;/code&gt;&lt;/a&gt; 方法.&lt;/p&gt;
+    &lt;p&gt;主要是 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt;&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L79&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt;&lt;/a&gt; 方法.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;read&lt;/code&gt;&lt;/a&gt; 可以根据具体的标记去读取, 比如 HTTP 协议是以 &lt;code&gt;\r\n&lt;/code&gt; 标记结尾的.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/stream.py#L112&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt;&lt;/a&gt; 可以根据具体的标记去读取, 比如 HTTP 协议是以 &lt;code class=&quot;highlighter-rouge&quot;&gt;\r\n&lt;/code&gt; 标记结尾的.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -187,25 +513,25 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;RawIO&lt;/code&gt;&lt;/a&gt; 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L18&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RawIO&lt;/code&gt;&lt;/a&gt; 是一个单例, 主要通过 epoll 实现了一个事件的轮询, 如果有socket可读或可写时返回, 由于使用的是 epoll, 所以只支持 Linux 系统.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 是一个事件驱动的，是通过 Linux 中的 Epoll 系统调用来实现的. 主要是负责处理 socket 的读写事件.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;add_handler&lt;/code&gt;&lt;/a&gt; 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L51&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;add_handler&lt;/code&gt;&lt;/a&gt; 根据 socket fd 和想要读还是写标记, 注册到 epoll 中, epoll 会在 socket 可读或是可写时把这个fd返回, 进行读写的操作, 不会阻一个 socket 上，可以同时处理多个 socket.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L56&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;modify_handler&lt;/code&gt;&lt;/a&gt; 可修改 socket 的要处理事件.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L56&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;modify_handler&lt;/code&gt;&lt;/a&gt; 可修改 socket 的要处理事件.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L60&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;remove_handler&lt;/code&gt;&lt;/a&gt; 如果客户端关闭了连接，则通过此方法删除.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L60&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;remove_handler&lt;/code&gt;&lt;/a&gt; 如果客户端关闭了连接，则通过此方法删除.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;loop&lt;/code&gt;&lt;/a&gt; 则启动事件轮询.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/Fwf/blob/develop/fwf/rawio.py#L32&quot; target=&quot;_blank&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;loop&lt;/code&gt;&lt;/a&gt; 则启动事件轮询.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 &lt;code&gt;epoll&lt;/code&gt; 与 &lt;code&gt;thread&lt;/code&gt; 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.&lt;/p&gt;
+    &lt;p&gt;由于 Web 应用大多都是 IO 密集型的应用, 网络 IO 处于 IO 读取的底层, 所以基于事件的 &lt;code class=&quot;highlighter-rouge&quot;&gt;epoll&lt;/code&gt; 与 &lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt; 和 每接入一个请求就 fork 出一个进程来处理的模型要更有优势.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -222,11 +548,11 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
     
       <item>
         <title>Python Web 框架学习 01 前言</title>
-        <description>&lt;h1 id=&quot;section&quot;&gt;前言&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
 
 &lt;p&gt;为了更好的了解Web框架的具体运作, 选择去实现一个框架，在选择参考框架时发现 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; 代码简洁而且设计比较好, 所以Python框架学习系列是以 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 所写, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 是参考 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt; v1.0.0版本的, &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 精简了一下 &lt;a href=&quot;http://www.tornadoweb.org/en/stable/&quot; target=&quot;_blank&quot;&gt;Tornado&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1 id=&quot;section-1&quot;&gt;目录&lt;/h1&gt;
+&lt;h1 id=&quot;目录&quot;&gt;目录&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Python Web 框架学习系列是基于 &lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目编写, 文章是根据项目的 py 文件去介绍框架从底向是如何执行处理的.&lt;/p&gt;
@@ -242,7 +568,7 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
   &lt;li&gt;&lt;a href=&quot;/blog/python/fwf/2015/04/08/python-web-framework-fwf-07-summary.html&quot;&gt;Fwf 执行图示和总结&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;blogpythonfwf20150331python-web-framework-fwf-01-introhtmlintroidintro&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;一些基础知识&quot;&gt;&lt;a href=&quot;/blog//python/fwf/2015/03/31/python-web-framework-fwf-01-intro.html#intro&quot; id=&quot;intro&quot;&gt;一些基础知识&lt;/a&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;TCP/IP, 通信基础.&lt;/li&gt;
@@ -258,7 +584,7 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt; 对于 &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_application_framework&quot; target=&quot;_blank&quot;&gt;Web 框架&lt;/a&gt; 的说明, 个人理解框架提供了编程的方式，让我们写的代码可以在其中运行，我们可以专注于业务逻辑.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;fwfhttpsgithubcomwin0x86fwftargetblank-&quot;&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目的一些说明&lt;/h2&gt;
+&lt;h2 id=&quot;fwf-项目的一些说明&quot;&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 项目的一些说明&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/win0x86/fwf&quot; target=&quot;_blank&quot;&gt;Fwf&lt;/a&gt; 只是一个学习项目，还没有足够的完善, 做为一学习项目存在.&lt;/p&gt;
 
@@ -306,7 +632,7 @@ GET /... =&amp;gt;  |  |  |  | fwf.web.RequestHandler                          |
         <title>Hello world</title>
         <description>&lt;p&gt;Hello world :).&lt;/p&gt;
 
-&lt;p&gt;win0x86 on github.com: &lt;a href=&quot;https://github.com/win0x86&quot;&gt;https://github.com/win0x86&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;win0x86 on github.com: &lt;a href=&quot;https://github.com/win0x86&quot;&gt;https://github.com/win0x86&lt;/a&gt;!&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 25 Mar 2015 18:50:40 +0800</pubDate>
